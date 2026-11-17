@@ -1,0 +1,70 @@
+<view class="page" wx:if="{{device}}">
+  <!-- 设备状态卡片 -->
+  <view class="card hero">
+    <view class="hero-top">
+      <view class="hero-icon">💻</view>
+      <view class="hero-info">
+        <view class="hero-name">{{device.name}}</view>
+        <view class="hero-meta">{{device.host}} · {{device.mac}}</view>
+      </view>
+      <view class="hero-edit" bindtap="goEditDevice">编辑</view>
+    </view>
+    <view class="hero-status">
+      <view class="tag {{status === 'online' ? 'tag-online' : status === 'offline' ? 'tag-offline' : 'tag-unknown'}}">
+        <view class="dot {{status === 'online' ? 'dot-online' : status === 'offline' ? 'dot-offline' : 'dot-unknown'}}"></view>
+        {{status === 'online' ? '在线' : status === 'offline' ? '离线' : '检测中…'}}
+      </view>
+      <view class="hero-test" bindtap="testConnection">测试连接</view>
+    </view>
+  </view>
+
+  <!-- 电源操作 -->
+  <view class="power-row">
+    <view class="btn btn-primary power-btn {{busy ? 'disabled' : ''}}" bindtap="doWake">
+      <text class="power-emoji">⚡</text>开机
+    </view>
+    <view class="btn btn-soft power-btn {{busy || status !== 'online' ? 'disabled' : ''}}" bindtap="doReboot">
+      <text class="power-emoji">🔄</text>重启
+    </view>
+    <view class="btn btn-danger-soft power-btn {{busy || status !== 'online' ? 'disabled' : ''}}" bindtap="doShutdown">
+      <text class="power-emoji">⏻</text>关机
+    </view>
+  </view>
+
+  <!-- 应用列表 -->
+  <view class="section-head">
+    <text class="section-title">应用</text>
+    <view class="section-action" bindtap="goAddApp">＋ 添加</view>
+  </view>
+
+  <view class="card app-list" wx:if="{{apps.length}}">
+    <view
+      wx:for="{{apps}}"
+      wx:key="id"
+      class="app-item {{index < apps.length - 1 ? 'app-item-border' : ''}}"
+      bindlongpress="goEditApp"
+      data-id="{{item.id}}"
+    >
+      <view class="app-icon">{{item.icon || '📦'}}</view>
+      <view class="app-info">
+        <view class="app-name">{{item.name}}</view>
+        <view class="app-state">
+          {{item.pending ? '处理中…' : item.running === true ? '运行中' : item.running === false ? '未运行' : '长按编辑'}}
+        </view>
+      </view>
+      <view
+        class="app-toggle {{item.running === true ? 'app-toggle-stop' : 'app-toggle-start'}} {{item.pending || status !== 'online' ? 'disabled' : ''}}"
+        catchtap="toggleApp"
+        data-id="{{item.id}}"
+      >
+        {{item.pending ? '…' : item.running === true ? '关闭' : '启动'}}
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="empty">
+    <view class="empty-icon">📦</view>
+    <view class="empty-text">还没有配置应用</view>
+    <view class="empty-sub">添加应用后可远程一键启动 / 关闭</view>
+  </view>
+</view>

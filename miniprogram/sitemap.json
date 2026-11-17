@@ -1,0 +1,4 @@
+{
+  "desc": "本地局域网控制工具，无需被搜索",
+  "rules": [{ "action": "disallow", "page": "*" }]
+}

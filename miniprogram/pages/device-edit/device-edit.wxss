@@ -1,0 +1,55 @@
+.page {
+  padding: 32rpx 32rpx 80rpx;
+}
+
+.group-label {
+  font-size: 26rpx;
+  color: var(--text-3);
+  padding: 20rpx 12rpx 16rpx;
+}
+
+.form-group {
+  padding: 0 32rpx;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 0;
+  border-bottom: 2rpx solid #f3f4f6;
+}
+.field-last { border-bottom: none; }
+
+.field-label {
+  width: 170rpx;
+  flex-shrink: 0;
+  font-size: 28rpx;
+  color: var(--text-2);
+}
+
+.field-input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.hint {
+  margin: 28rpx 12rpx 0;
+  font-size: 23rpx;
+  line-height: 1.7;
+  color: var(--text-3);
+}
+
+.actions {
+  display: flex;
+  gap: 24rpx;
+  margin-top: 48rpx;
+}
+.actions .btn { flex: 1; }
+
+.delete-link {
+  margin-top: 48rpx;
+  text-align: center;
+  color: var(--danger);
+  font-size: 28rpx;
+  padding: 20rpx;
+}

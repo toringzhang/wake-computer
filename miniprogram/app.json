@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/device/device",
+    "pages/device-edit/device-edit",
+    "pages/app-edit/app-edit"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F5F6FA",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "WakePC",
+    "backgroundColor": "#F5F6FA",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

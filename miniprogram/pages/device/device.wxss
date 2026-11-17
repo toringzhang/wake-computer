@@ -1,0 +1,134 @@
+.page {
+  padding: 32rpx 32rpx 80rpx;
+}
+
+.hero {
+  padding: 36rpx 32rpx;
+  margin-bottom: 28rpx;
+}
+.hero-top {
+  display: flex;
+  align-items: center;
+}
+.hero-icon {
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 28rpx;
+  background: var(--primary-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52rpx;
+  margin-right: 28rpx;
+  flex-shrink: 0;
+}
+.hero-info { flex: 1; min-width: 0; }
+.hero-name {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.hero-meta {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-3);
+  word-break: break-all;
+}
+.hero-edit {
+  flex-shrink: 0;
+  color: var(--primary);
+  font-size: 26rpx;
+  padding: 10rpx 18rpx;
+}
+
+.hero-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  padding-top: 28rpx;
+  border-top: 2rpx solid #f3f4f6;
+}
+.hero-test {
+  color: var(--primary);
+  font-size: 26rpx;
+}
+
+.power-row {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 48rpx;
+}
+.power-btn {
+  flex: 1;
+  flex-direction: column;
+  height: 140rpx;
+  gap: 8rpx;
+  font-size: 26rpx;
+}
+.power-emoji { font-size: 44rpx; }
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8rpx 20rpx;
+}
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.section-action {
+  color: var(--primary);
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.app-list {
+  padding: 0 32rpx;
+}
+.app-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+}
+.app-item-border {
+  border-bottom: 2rpx solid #f3f4f6;
+}
+.app-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: #f5f6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+.app-info { flex: 1; min-width: 0; }
+.app-name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.app-state {
+  margin-top: 6rpx;
+  font-size: 23rpx;
+  color: var(--text-3);
+}
+.app-toggle {
+  flex-shrink: 0;
+  padding: 14rpx 34rpx;
+  border-radius: 999rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+}
+.app-toggle-start {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.app-toggle-stop {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.app-toggle:active { opacity: 0.7; }

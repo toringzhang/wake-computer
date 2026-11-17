@@ -1,0 +1,40 @@
+<view class="page">
+  <view class="group-label">图标</view>
+  <view class="card icon-grid">
+    <view
+      wx:for="{{icons}}"
+      wx:key="*this"
+      class="icon-item {{form.icon === item ? 'icon-item-active' : ''}}"
+      bindtap="pickIcon"
+      data-icon="{{item}}"
+    >{{item}}</view>
+  </view>
+
+  <view class="group-label">应用信息</view>
+  <view class="card form-group">
+    <view class="field">
+      <text class="field-label">名称</text>
+      <input class="field-input" placeholder="如：Steam" value="{{form.name}}" data-field="name" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="field-label">程序路径</text>
+      <input class="field-input" placeholder="C:\Program Files\...\app.exe" value="{{form.path}}" data-field="path" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="field-label">启动参数</text>
+      <input class="field-input" placeholder="选填" value="{{form.args}}" data-field="args" bindinput="onInput" />
+    </view>
+    <view class="field field-last">
+      <text class="field-label">进程名</text>
+      <input class="field-input" placeholder="选填，默认取 exe 文件名" value="{{form.processName}}" data-field="processName" bindinput="onInput" />
+    </view>
+  </view>
+
+  <view class="hint">进程名用于查询运行状态与关闭应用（不含 .exe 后缀）。若启动器与主进程不同名（如 Steam 启动游戏），请单独填写。</view>
+
+  <view class="actions">
+    <view class="btn btn-primary btn-full" bindtap="onSave">保存</view>
+  </view>
+
+  <view wx:if="{{isEdit}}" class="delete-link" bindtap="onDelete">删除此应用</view>
+</view>

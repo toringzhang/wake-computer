@@ -1,0 +1,44 @@
+<view class="page">
+  <view class="group-label">基本信息</view>
+  <view class="card form-group">
+    <view class="field">
+      <text class="field-label">名称</text>
+      <input class="field-input" placeholder="如：书房台式机" value="{{form.name}}" data-field="name" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="field-label">IP 地址</text>
+      <input class="field-input" placeholder="192.168.1.100" type="text" value="{{form.host}}" data-field="host" bindinput="onInput" />
+    </view>
+    <view class="field field-last">
+      <text class="field-label">MAC 地址</text>
+      <input class="field-input" placeholder="AA:BB:CC:DD:EE:FF" value="{{form.mac}}" data-field="mac" bindinput="onInput" />
+    </view>
+  </view>
+
+  <view class="group-label">远程管理（WinRM）</view>
+  <view class="card form-group">
+    <view class="field">
+      <text class="field-label">用户名</text>
+      <input class="field-input" placeholder="Windows 本地账户" value="{{form.username}}" data-field="username" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="field-label">密码</text>
+      <input class="field-input" password placeholder="账户密码" value="{{form.password}}" data-field="password" bindinput="onInput" />
+    </view>
+    <view class="field field-last">
+      <text class="field-label">端口</text>
+      <input class="field-input" type="number" placeholder="5985" value="{{form.port}}" data-field="port" bindinput="onInput" />
+    </view>
+  </view>
+
+  <view class="hint">
+    目标电脑需运行一次配置脚本以启用 WinRM 远程管理（见项目 setup/setup-windows.ps1），并在 BIOS 和网卡中开启 Wake-on-LAN。凭据仅保存在本机。
+  </view>
+
+  <view class="actions">
+    <view class="btn btn-ghost {{testing ? 'disabled' : ''}}" bindtap="onTest">测试连接</view>
+    <view class="btn btn-primary" bindtap="onSave">保存</view>
+  </view>
+
+  <view wx:if="{{isEdit}}" class="delete-link" bindtap="onDelete">删除此设备</view>
+</view>
